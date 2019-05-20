@@ -8,7 +8,7 @@ sudo yum install nginx -y
 sudo systemctl enable nginx                                              
 sudo systemctl start nginx                                               
 systemctl status nginx
-sudo curl https://raw.githubusercontent.com/diggytec/centos-utilities/master/mariadb.repo -o /etc/yum.repos.d/mariadb.repo
+curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash
 sudo yum install MariaDB-server MariaDB-client -y                                       
 sudo systemctl enable mariadb                                            
 sudo systemctl start mariadb                                             
