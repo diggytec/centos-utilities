@@ -1,12 +1,15 @@
 #!/bin/bash
+sudo yum install epel-release -y
 sudo yum update -y 
 sudo yum install yum-cron -y
-sudo yum install epel-release -y
+curl https://raw.githubusercontent.com/diggytec/centos-utilities/master/yum-cron.conf -o yum-cron.conf
+sudo cp -p yum-cron.conf /etc/yum/
 sudo yum install nginx -y                                                
 sudo systemctl enable nginx                                              
 sudo systemctl start nginx                                               
-systemctl status nginx                                                   
-sudo yum install mariadb-server -y                                       
+systemctl status nginx
+sudo curl https://raw.githubusercontent.com/diggytec/centos-utilities/master/mariadb.repo -o /etc/yum.repos.d/mariadb.repo
+sudo yum install MariaDB-server MariaDB-client -y                                       
 sudo systemctl enable mariadb                                            
 sudo systemctl start mariadb                                             
 sudo mysql_secure_installation                                       
