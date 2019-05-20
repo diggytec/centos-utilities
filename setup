@@ -2,8 +2,9 @@
 sudo yum install epel-release -y
 sudo yum update -y 
 sudo yum install yum-cron -y
-curl https://raw.githubusercontent.com/diggytec/centos-utilities/master/yum-cron.conf -o yum-cron.conf
-sudo cp -p yum-cron.conf /etc/yum/
+sudo curl -sS https://raw.githubusercontent.com/diggytec/centos-utilities/master/yum-cron.conf -o /etc/yum/yum-cron.conf
+systemctl start yum-cron
+systemctl enable yum-cron
 sudo curl -sS https://raw.githubusercontent.com/diggytec/centos-utilities/master/nginx.repo -o /etc/yum.repos.d/nginx.repo 
 sudo yum install nginx -y                                                
 sudo systemctl enable nginx                                              
