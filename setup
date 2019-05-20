@@ -4,6 +4,7 @@ sudo yum update -y
 sudo yum install yum-cron -y
 curl https://raw.githubusercontent.com/diggytec/centos-utilities/master/yum-cron.conf -o yum-cron.conf
 sudo cp -p yum-cron.conf /etc/yum/
+sudo curl -sS https://raw.githubusercontent.com/diggytec/centos-utilities/master/nginx.repo -o /etc/yum.repos.d/nginx.repo 
 sudo yum install nginx -y                                                
 sudo systemctl enable nginx                                              
 sudo systemctl start nginx                                               
