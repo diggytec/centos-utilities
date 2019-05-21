@@ -1,5 +1,0 @@
-[mariadb]
-name = MariaDB-10.3.15
-baseurl = http://yum.mariadb.org/10.3.15/centos73-amd64/
-gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
-gpgcheck=1
