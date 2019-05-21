@@ -1,28 +1,28 @@
 #!/bin/bash
-sudo yum install epel-release -y
-sudo yum update -y 
-sudo yum install yum-cron -y
-sudo curl -sS https://raw.githubusercontent.com/diggytec/centos-utilities/master/yum-cron.conf -o /etc/yum/yum-cron.conf
-sudo systemctl start yum-cron
-sudo systemctl enable yum-cron
-sudo curl -sS https://raw.githubusercontent.com/diggytec/centos-utilities/master/nginx.repo -o /etc/yum.repos.d/nginx.repo 
-sudo yum install nginx -y                                                
-sudo systemctl enable nginx                                              
-sudo systemctl start nginx                                               
+yum install epel-release -y
+yum update -y 
+yum install yum-cron -y
+curl -sS https://raw.githubusercontent.com/diggytec/centos-utilities/master/yum-cron.conf -o /etc/yum/yum-cron.conf
+systemctl start yum-cron
+systemctl enable yum-cron
+curl -sS https://raw.githubusercontent.com/diggytec/centos-utilities/master/nginx.repo -o /etc/yum.repos.d/nginx.repo 
+yum install nginx -y                                                
+systemctl enable nginx                                              
+systemctl start nginx                                               
 systemctl status nginx
-curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash
-sudo yum install MariaDB-server MariaDB-client -y                                       
-sudo systemctl enable mariadb                                            
-sudo systemctl start mariadb                                             
-sudo mysql_secure_installation                                       
-sudo yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y                                                                        
-sudo yum install yum-utils -y                                            
-sudo yum-config-manager --enable remi-php73                              
-sudo yum install php-fpm php-mysql php-cli php-mbstring php-opcache php-curl php-gd -y
-sudo systemctl enable php-fpm
-sudo systemctl start php-fpm
+curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | bash
+yum install MariaDB-server MariaDB-client -y                                       
+systemctl enable mariadb                                            
+systemctl start mariadb                                             
+mysql_secure_installation                                       
+yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y                                                                        
+yum install yum-utils -y                                            
+yum-config-manager --enable remi-php73                              
+yum install php-fpm php-mysql php-cli php-mbstring php-opcache php-curl php-gd -y
+systemctl enable php-fpm
+systemctl start php-fpm
 systemctl status php-fpm                                                 
-sudo mkdir -p /var/www/html/example.com 
+mkdir -p /var/www/html/example.com 
 adduser sysadminprod
 usermod -aG wheel sysadminprod
 echo -e "sysadminprod\tALL=(ALL)\tNOPASSWD: ALL" > /etc/sudoers.d/mysudoers
