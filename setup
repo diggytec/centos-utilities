@@ -22,4 +22,7 @@ sudo yum install php-fpm php-mysql php-cli php-mbstring php-opcache php-curl php
 sudo systemctl enable php-fpm
 sudo systemctl start php-fpm
 systemctl status php-fpm                                                 
-sudo mkdir -p /var/www/html/example.com                 
+sudo mkdir -p /var/www/html/example.com 
+adduser sysadminprod
+usermod -aG wheel sysadminprod
+echo -e "sysadminprod\tALL=(ALL)\tNOPASSWD: ALL" > /etc/sudoers.d/mysudoers
